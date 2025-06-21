@@ -575,35 +575,61 @@ footer {
     z-index: 1000;
 }
 
+.chatbot-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    z-index: 9998;
+}
+
 .chatbot-container {
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 370px;
+    height: 500px;
+    background: white;
     border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     transition: all 0.3s ease;
-    background: white;
 }
 
-.chatbot-toggle {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #f0f0f0;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    z-index: 1001;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.chatbot-container.minimized {
+/* Chatbot oculto */
+.chatbot-wrapper.minimized .chatbot-container {
     height: 0;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
+}
+
+/* Botón flotante */
+.chatbot-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    z-index: 9999;
+}
+
+/* Botón pequeño y en la parte superior del cuadro */
+.chatbot-wrapper.open .chatbot-toggle {
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    bottom: auto;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    z-index: 10;
+}
+
+#webchat {
+    width: 100%;
+    height: 100%;
 }

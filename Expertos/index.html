@@ -34,10 +34,10 @@
             <h1>Cuidamos de tu salud con excelencia y calidez humana</h1>
             <p>En Sanar encontrará un equipo médico comprometido con su bienestar y tecnología de vanguardia para su
                 diagnóstico y tratamiento.</p>
-            <div class="search-container delay-1">
+            <!-- <div class="search-container delay-1">
                 <input type="text" class="search-input" placeholder="Buscar especialidad, doctor o servicio...">
                 <button class="search-button"><i class="fas fa-search"></i></button>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -422,38 +422,43 @@
 
 
 
+    <div class="chatbot-wrapper minimized" id="chatbotWrapper">
+        <div class="chatbot-container" id="chatbotContainer">
+            <div id="webchat" role="main"></div>
+        </div>
 
-    <div class="chatbot-wrapper">
-        <div id="webchat" class="chatbot-container" role="main"></div>
+        <!-- Botón flotante -->
         <button class="chatbot-toggle" id="toggleChatbot">
-            <i class="fas fa-minus"></i>
+            <i class="fas fa-plus"></i>
         </button>
     </div>
+
+    <!-- Webchat de Microsoft -->
     <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+
+    <!-- Tu script de control del chatbot -->
     <script src="chatbot.js"></script>
-
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const toggleChatbot = document.getElementById('toggleChatbot');
-            const chatbotContainer = document.querySelector('.chatbot-container');
+            const chatbotWrapper = document.getElementById('chatbotWrapper');
+            const icon = toggleChatbot.querySelector('i');
 
-            if (toggleChatbot && chatbotContainer) {
-                toggleChatbot.addEventListener('click', function () {
-                    chatbotContainer.classList.toggle('minimized');
+            toggleChatbot.addEventListener('click', function () {
+                const isMinimized = chatbotWrapper.classList.toggle('minimized');
+                chatbotWrapper.classList.toggle('open', !isMinimized);
 
-                    const icon = this.querySelector('i');
-                    if (chatbotContainer.classList.contains('minimized')) {
-                        icon.classList.remove('fa-minus');
-                        icon.classList.add('fa-plus');
-                    } else {
-                        icon.classList.remove('fa-plus');
-                        icon.classList.add('fa-minus');
-                    }
-                });
-            }
+                if (isMinimized) {
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                } else {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
         });
+
     </script>
 
 </body>

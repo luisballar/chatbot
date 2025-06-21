@@ -6,7 +6,6 @@
             token: directLineToken
         });
 
-        // Renderizar el WebChat en el div con id 'webchat'
         window.WebChat.renderWebChat({
             directLine: directLine,
             userID: 'user',  // Un identificador único para el usuario
