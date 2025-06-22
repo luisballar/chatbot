@@ -39,16 +39,22 @@
     <section class="features" id="servicios">
         <h2 class="section-title animated">Nuestros Servicios</h2>
         <div class="features-grid">
+            <div class="feature-card animated delay-2">
+                <div class="feature-icon"><i class="fas fa-stethoscope"></i></div>
+                <h3>Medicina General</h3>
+                <p>Atención médica integral para todo tipo de pacientes, diagnóstico básico, control de enfermedades
+                    comunes y orientación profesional.</p>
+            </div>
+            <div class="feature-card animated delay-2">
+                <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                <h3>Especialistas</h3>
+                <p>Más de 15 especialidades médicas con profesionales altamente calificados y certificados.</p>
+            </div>
             <div class="feature-card animated delay-1">
                 <div class="feature-icon"><i class="fas fa-procedures"></i></div>
                 <h3>Urgencias 24/7</h3>
                 <p>Atención médica inmediata las 24 horas del día, los 365 días del año con equipos de última
                     generación.</p>
-            </div>
-            <div class="feature-card animated delay-2">
-                <div class="feature-icon"><i class="fas fa-user-md"></i></div>
-                <h3>Especialistas</h3>
-                <p>Más de 50 especialidades médicas con profesionales altamente calificados y certificados.</p>
             </div>
             <div class="feature-card animated delay-3">
                 <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
@@ -61,11 +67,6 @@
                 <h3>Laboratorio Clínico</h3>
                 <p>Tecnología de punta para análisis clínicos con resultados rápidos y confiables.</p>
             </div>
-            <div class="feature-card animated delay-2">
-                <div class="feature-icon"><i class="fas fa-x-ray"></i></div>
-                <h3>Diagnóstico por Imágenes</h3>
-                <p>Tomografía, resonancia magnética, ultrasonido y radiología digital de alta resolución.</p>
-            </div>
             <div class="feature-card animated delay-3">
                 <div class="feature-icon"><i class="fas fa-pills"></i></div>
                 <h3>Farmacia Hospitalaria</h3>
@@ -77,78 +78,72 @@
     <section class="doctors" id="doctores">
         <div class="doctors-container">
             <h2 class="section-title animated">Nuestros Doctores</h2>
-            <div class="doctors-grid">
-                <div class="doctor-card animated delay-1">
-                    <div class="doctor-image"
-                        style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
+
+            <div class="carousel-container">
+                <button class="carousel-button prev" aria-label="Anterior">&lt;</button>
+
+                <div class="doctors-carousel">
+                    <!-- Los médicos se generarán automáticamente aquí -->
+                </div>
+
+                <button class="carousel-button next" aria-label="Siguiente">&gt;</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        fetch('./data/medicos.json')
+            .then(response => response.json())
+            .then(medicos => {
+                const carousel = document.querySelector('.doctors-carousel');
+
+                medicos.forEach((medico, index) => {
+                    const isFemale = medico["Nombre Médico"].includes("Dra.");
+                    const imageUrl = isFemale
+                        ? `https://randomuser.me/api/portraits/women/${40 + (index % 30)}.jpg`
+                        : `https://randomuser.me/api/portraits/men/${30 + (index % 30)}.jpg`;
+
+                    const html = `
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('${imageUrl}');"></div>
                     <div class="doctor-info">
-                        <h3>Dra. Laura Méndez</h3>
-                        <span class="doctor-specialty">Cardióloga</span>
+                        <h3>${medico["Nombre Médico"]}</h3>
+                        <span class="doctor-specialty">${medico.Especialidad}</span>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
-                            <span>(128)</span>
+                            <span>(${Math.floor(Math.random() * 250 + 50)})</span>
                         </div>
                         <button class="appointment-button">Pedir cita</button>
                     </div>
                 </div>
-                <div class="doctor-card animated delay-2">
-                    <div class="doctor-image"
-                        style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
-                    <div class="doctor-info">
-                        <h3>Dr. Carlos Rojas</h3>
-                        <span class="doctor-specialty">Pediatra</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(245)</span>
-                        </div>
-                        <button class="appointment-button">Pedir cita</button>
-                    </div>
-                </div>
-                <div class="doctor-card animated delay-3">
-                    <div class="doctor-image"
-                        style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg');"></div>
-                    <div class="doctor-info">
-                        <h3>Dra. Ana Vargas</h3>
-                        <span class="doctor-specialty">Dermatóloga</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(87)</span>
-                        </div>
-                        <button class="appointment-button">Pedir cita</button>
-                    </div>
-                </div>
-                <div class="doctor-card animated delay-1">
-                    <div class="doctor-image"
-                        style="background-image: url('https://randomuser.me/api/portraits/men/75.jpg');"></div>
-                    <div class="doctor-info">
-                        <h3>Dr. Javier Soto</h3>
-                        <span class="doctor-specialty">Ortopedista</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(312)</span>
-                        </div>
-                        <button class="appointment-button">Pedir cita</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            `;
+
+                    carousel.innerHTML += html;
+                });
+
+                // Configurar el carrusel
+                const carouselContainer = document.querySelector('.doctors-carousel');
+                const card = document.querySelector('.doctor-card');
+                const cardWidth = card?.offsetWidth || 300;
+                const gap = 20;
+                const visibleCards = 3;
+                const scrollAmount = (cardWidth + gap) * visibleCards;
+
+                document.querySelector('.carousel-button.next').addEventListener('click', () => {
+                    carouselContainer.scrollLeft += scrollAmount;
+                });
+
+                document.querySelector('.carousel-button.prev').addEventListener('click', () => {
+                    carouselContainer.scrollLeft -= scrollAmount;
+                });
+
+            })
+            .catch(err => console.error('Error cargando médicos:', err));
+    </script>
 
     <section class="testimonials" id="testimonios">
         <h2 class="section-title animated">Lo que dicen nuestros pacientes</h2>
@@ -222,52 +217,54 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-about">
-                <span class="footer-logo">Sanar</span>
-                <p>Comprometidos con la excelencia médica y el trato humano desde 2008. Nuestra misión es brindar
-                    atención de salud integral con los más altos estándares de calidad.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+    <div id="contacto">
+        <footer>
+            <div class="footer-container">
+                <div class="footer-about">
+                    <span class="footer-logo">Sanar</span>
+                    <p>Comprometidos con la excelencia médica y el trato humano desde 2025. Nuestra misión es brindar
+                        atención de salud integral con los más altos estándares de calidad.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#doctores">Doctores</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#">Urgencias</a></li>
+                        <li><a href="#">Consultas externas</a></li>
+                        <li><a href="#">Hospitalización</a></li>
+                        <li><a href="#">Cirugías</a></li>
+                        <li><a href="#">Exámenes diagnósticos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Centro Médico Tatooine Av. 8, Calle 17, San José, Costa Rica</p>
+                    <p><i class="fas fa-phone"></i> (506) 0000-0000</p>
+                    <p><i class="fas fa-envelope"></i> tatooinemedcenter@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Lunes a Viernes: 10am - 7pm</p>
+                    <p><i class="fas fa-clock"></i> Sábados y Domingos: 11am - 6pm</p>
                 </div>
             </div>
-            <div class="footer-links">
-                <h3>Enlaces rápidos</h3>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#doctores">Doctores</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
+            <div class="copyright">
+                <p>&copy; 2023 Sanar Salud Integral. Todos los derechos reservados.</p>
             </div>
-            <div class="footer-links">
-                <h3>Servicios</h3>
-                <ul>
-                    <li><a href="#">Urgencias</a></li>
-                    <li><a href="#">Consultas externas</a></li>
-                    <li><a href="#">Hospitalización</a></li>
-                    <li><a href="#">Cirugías</a></li>
-                    <li><a href="#">Exámenes diagnósticos</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contacto</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Av. Salud 1234, Ciudad Médica</p>
-                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-                <p><i class="fas fa-envelope"></i> info@sanarhospital.com</p>
-                <p><i class="fas fa-clock"></i> Lunes a Viernes: 7am - 9pm</p>
-                <p><i class="fas fa-clock"></i> Sábados: 8am - 6pm</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 Sanar Salud Integral. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <div class="notification" id="notification">
         ¡Tu cita ha sido reservada con éxito! Te enviaremos un correo de confirmación.
@@ -360,6 +357,7 @@
     <script src="chatbot.js"></script>
 
     <script>
+        // metodo para cerra y abrir el 
         document.addEventListener('DOMContentLoaded', function () {
             const toggleChatbot = document.getElementById('toggleChatbot');
             const chatbotWrapper = document.getElementById('chatbotWrapper');
@@ -380,7 +378,22 @@
         });
 
     </script>
+    <script>
+        function scrollToSection(event, id) {
+            event.preventDefault();
+            const section = document.getElementById(id);
+            const offset = 100; // Altura de tu navbar
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = section.getBoundingClientRect().top;
+            const position = elementRect - bodyRect - offset;
 
+            window.scrollTo({
+                top: position,
+                behavior: 'smooth'
+            });
+        }
+
+    </script>
 </body>
 
 </html>

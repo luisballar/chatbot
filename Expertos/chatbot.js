@@ -25,12 +25,17 @@ window.WebChat.renderWebChat(
     username: 'user',
     locale: 'es-ES',
     styleOptions: {
-      bubbleMaxWidth: 380,           // Un poco más ancho para que quepan listas
-      bubblePadding: 10,             // Suficiente para que no se corten las viñetas
-      bubbleTextSize: 14,
+      bubbleMaxWidth: 380,
+      bubblePadding: 10,
+      bubbleTextSize: 10, // size font
       sendBoxHeight: 40,
       sendBoxTextSize: 14,
-      paddingRegular: 10
+      paddingRegular: 12,
+      hideUploadButton: true,
+      botAvatarImage: 'https://img.icons8.com/?size=512&id=35734&format=png',
+      botAvatarInitials: '', // vacía para que no se superponga
+      botAvatarBackgroundColor: 'transparent', 
+      botAvatarSize: 40
     }
 
   },

@@ -580,8 +580,8 @@ footer {
     width: 370px;
     height: 500px;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 
-                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     transform: translateY(0);
@@ -589,7 +589,7 @@ footer {
     visibility: visible;
     display: flex;
     flex-direction: column;
-    
+
 }
 
 /* Chatbot oculto */
@@ -604,7 +604,7 @@ footer {
 /* Header del chatbot */
 .chatbot-header {
     background: linear-gradient(135deg, #2a9d8f 0%, #1d7a6b 100%);
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 15px 20px;
     display: flex;
     align-items: center;
@@ -636,7 +636,7 @@ footer {
 .chatbot-toggle {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 30px;
     width: 60px;
     height: 60px;
     background: linear-gradient(135deg, #2a9d8f 0%, #1d7a6b 100%);
@@ -662,7 +662,7 @@ footer {
 .chatbot-wrapper.open .chatbot-toggle {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 5px;
     bottom: auto;
     width: 32px;
     height: 32px;
@@ -684,13 +684,21 @@ footer {
     width: 100%;
     height: 100%;
     border: none;
-    background: transparent !important; /* Fondo transparente */
+    background: transparent !important;
+    /* Fondo transparente */
 }
 
 /* Efecto de aparición */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .chatbot-container {
@@ -717,20 +725,109 @@ footer {
 
 /* Ajustes específicos para el input */
 .webchat__send-box {
-  min-height: 40px !important;
-  padding: 5px 10px !important;
+    min-height: 40px !important;
+    padding: 5px 10px !important;
 }
 
 /* Ajuste para el texto dentro del input */
 .webchat__send-box-text-box {
-  padding: 8px !important;
+    padding: 8px !important;
 }
 
 .webchat__bubble__content ul {
-  padding-left: 20px; /* espacio para viñetas */
-  margin: 0;
+    padding-left: 20px;
+    /* espacio para viñetas */
+    margin: 0;
 }
 
 .webchat__bubble__content li {
-  margin-bottom: 4px;
+    margin-bottom: 4px;
+}
+
+/* Sirve para ajustar el scroll de las secciones*/
+section {
+    scroll-margin-top: 80px !important;
+}
+
+/* Carrusel de Doctores */
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.doctors-carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s ease;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    /* Para dispositivos móviles */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* Para scroll suave en iOS */
+}
+
+/* Ocultar scrollbar pero mantener funcionalidad */
+.doctors-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.doctor-card {
+    min-width: 280px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2a9d8f;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-button:hover {
+    background: #21867a;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .doctor-card {
+        min-width: 85%;
+        margin: 0 7.5%;
+    }
+
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
 }
