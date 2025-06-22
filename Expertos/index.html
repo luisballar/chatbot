@@ -25,7 +25,6 @@
                 <a href="#testimonios">Testimonios</a>
                 <a href="#contacto">Contacto</a>
             </div>
-            <button class="cta-button">Reservar cita</button>
         </nav>
     </header>
 
@@ -34,10 +33,6 @@
             <h1>Cuidamos de tu salud con excelencia y calidez humana</h1>
             <p>En Sanar encontrará un equipo médico comprometido con su bienestar y tecnología de vanguardia para su
                 diagnóstico y tratamiento.</p>
-            <div class="search-container delay-1">
-                <input type="text" class="search-input" placeholder="Buscar especialidad, doctor o servicio...">
-                <button class="search-button"><i class="fas fa-search"></i></button>
-            </div>
         </div>
     </section>
 
@@ -227,51 +222,6 @@
         </div>
     </section>
 
-    <section class="appointment" id="contacto">
-        <div class="appointment-container animated">
-            <h2 class="section-title">Reserva tu cita</h2>
-            <form class="appointment-form" id="appointmentForm">
-                <div class="form-group">
-                    <label for="name">Nombre completo</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Teléfono</label>
-                    <input type="tel" id="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="specialty">Especialidad</label>
-                    <select id="specialty" required>
-                        <option value="">Seleccione una especialidad</option>
-                        <option value="cardiology">Cardiología</option>
-                        <option value="pediatrics">Pediatría</option>
-                        <option value="dermatology">Dermatología</option>
-                        <option value="orthopedics">Ortopedia</option>
-                        <option value="gynecology">Ginecología</option>
-                        <option value="general">Medicina General</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="doctor">Doctor preferido (opcional)</label>
-                    <input type="text" id="doctor">
-                </div>
-                <div class="form-group">
-                    <label for="date">Fecha preferida</label>
-                    <input type="date" id="date" required>
-                </div>
-                <div class="form-group full-width">
-                    <label for="message">Mensaje adicional (opcional)</label>
-                    <textarea id="message" rows="4"></textarea>
-                </div>
-                <button type="submit" class="submit-button">Reservar cita ahora</button>
-            </form>
-        </div>
-    </section>
-
     <footer>
         <div class="footer-container">
             <div class="footer-about">
@@ -367,10 +317,6 @@
                 });
             });
 
-            // Formulario de cita
-            const appointmentForm = document.getElementById('appointmentForm');
-            const notification = document.getElementById('notification');
-
             appointmentForm.addEventListener('submit', function (e) {
                 e.preventDefault();
 
@@ -391,69 +337,48 @@
                 });
             });
 
-            // Botones de pedir cita en las tarjetas de doctores
-            const doctorAppointmentButtons = document.querySelectorAll('.appointment-button');
-            doctorAppointmentButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const doctorCard = this.closest('.doctor-card');
-                    const doctorName = doctorCard.querySelector('h3').textContent;
-                    const doctorSpecialty = doctorCard.querySelector('.doctor-specialty').textContent;
-
-                    // Rellenar automáticamente el formulario
-                    document.getElementById('specialty').value = doctorSpecialty.toLowerCase().replace('ó', 'o');
-                    document.getElementById('doctor').value = doctorName;
-
-                    // Scroll al formulario
-                    document.querySelector('#contacto').scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Botón de reservar cita en el navbar
-            const navCtaButton = document.querySelector('.navbar .cta-button');
-            navCtaButton.addEventListener('click', function () {
-                document.querySelector('#contacto').scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
         });
     </script>
 
 
 
+    <div class="chatbot-wrapper minimized" id="chatbotWrapper">
+        <div class="chatbot-container" id="chatbotContainer">
+            <div id="webchat" role="main"></div>
+        </div>
 
-    <div class="chatbot-wrapper">
-        <div id="webchat" class="chatbot-container" role="main"></div>
+        <!-- Botón flotante -->
         <button class="chatbot-toggle" id="toggleChatbot">
-            <i class="fas fa-minus"></i>
+            <i class="fas fa-plus"></i>
         </button>
     </div>
+
+    <!-- Webchat de Microsoft -->
     <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+
+    <!-- Tu script de control del chatbot -->
     <script src="chatbot.js"></script>
-
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const toggleChatbot = document.getElementById('toggleChatbot');
-            const chatbotContainer = document.querySelector('.chatbot-container');
+            const chatbotWrapper = document.getElementById('chatbotWrapper');
+            const icon = toggleChatbot.querySelector('i');
 
-            if (toggleChatbot && chatbotContainer) {
-                toggleChatbot.addEventListener('click', function () {
-                    chatbotContainer.classList.toggle('minimized');
+            toggleChatbot.addEventListener('click', function () {
+                const isMinimized = chatbotWrapper.classList.toggle('minimized');
+                chatbotWrapper.classList.toggle('open', !isMinimized);
 
-                    const icon = this.querySelector('i');
-                    if (chatbotContainer.classList.contains('minimized')) {
-                        icon.classList.remove('fa-minus');
-                        icon.classList.add('fa-plus');
-                    } else {
-                        icon.classList.remove('fa-plus');
-                        icon.classList.add('fa-minus');
-                    }
-                });
-            }
+                if (isMinimized) {
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                } else {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
         });
+
     </script>
 
 </body>
