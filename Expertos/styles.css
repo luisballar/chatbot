@@ -569,27 +569,27 @@ footer {
 .chatbot-wrapper {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 40px;
     width: 350px;
     height: 500px;
-    z-index: 1000;
-}
-
-.chatbot-wrapper {
-    position: fixed;
-    bottom: 20px;
-    right: 40px;
     z-index: 9998;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 .chatbot-container {
     width: 370px;
     height: 500px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 /* Chatbot oculto */
@@ -598,6 +598,38 @@ footer {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    transform: translateY(20px);
+}
+
+/* Header del chatbot */
+.chatbot-header {
+    background: linear-gradient(135deg, #2a9d8f 0%, #1d7a6b 100%);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-title {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.chatbot-close:hover {
+    opacity: 1;
 }
 
 /* Botón flotante */
@@ -607,29 +639,98 @@ footer {
     right: 20px;
     width: 60px;
     height: 60px;
-    background-color: #2a9d8f;
+    background: linear-gradient(135deg, #2a9d8f 0%, #1d7a6b 100%);
     color: white;
     border: none;
     border-radius: 50%;
     font-size: 24px;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 9999;
+    box-shadow: 0 5px 15px rgba(42, 157, 143, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 8px 20px rgba(42, 157, 143, 0.6);
 }
 
 /* Botón pequeño y en la parte superior del cuadro */
 .chatbot-wrapper.open .chatbot-toggle {
     position: absolute;
     top: 10px;
-    right: -10px;
+    right: 10px;
     bottom: auto;
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
     z-index: 10;
+    background: rgba(42, 157, 143, 0.4);
+    backdrop-filter: blur(5px);
+    transform: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.chatbot-wrapper.open .chatbot-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Área del chat */
 #webchat {
     width: 100%;
     height: 100%;
+    border: none;
+    background: transparent !important; /* Fondo transparente */
+}
+
+/* Efecto de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chatbot-container {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Personalización del scroll (opcional) */
+.chatbot-container ::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chatbot-container ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.chatbot-container ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.chatbot-container ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustes específicos para el input */
+.webchat__send-box {
+  min-height: 40px !important;
+  padding: 5px 10px !important;
+}
+
+/* Ajuste para el texto dentro del input */
+.webchat__send-box-text-box {
+  padding: 8px !important;
+}
+
+.webchat__bubble__content ul {
+  padding-left: 20px; /* espacio para viñetas */
+  margin: 0;
+}
+
+.webchat__bubble__content li {
+  margin-bottom: 4px;
 }
