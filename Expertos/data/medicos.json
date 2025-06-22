@@ -1,0 +1,290 @@
+[
+  {
+    "Especialidad":"Cardiología",
+    "Nombre Médico":"Dr. Juan Pérez",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Cardiología",
+    "Nombre Médico":"Dra. Ana Gómez",
+    "Horario":"Lunes a Viernes: 14:00 - 18:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Cardiología",
+    "Nombre Médico":"Dr. Luis Sánchez",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Pediatría",
+    "Nombre Médico":"Dra. Mariana López",
+    "Horario":"Lunes a Viernes: 10:00 - 14:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Pediatría",
+    "Nombre Médico":"Dr. Carlos Ruiz",
+    "Horario":"Lunes, Miércoles y Viernes: 08:00 - 12:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Pediatría",
+    "Nombre Médico":"Dra. Patricia Martínez",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Ginecología",
+    "Nombre Médico":"Dra. Marta Rodríguez",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Ginecología",
+    "Nombre Médico":"Dr. Javier Soto",
+    "Horario":"Lunes, Miércoles y Viernes: 14:00 - 18:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Ginecología",
+    "Nombre Médico":"Dra. Carolina Díaz",
+    "Horario":"Martes a Jueves: 10:00 - 14:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Dermatología",
+    "Nombre Médico":"Dr. Alberto Gómez",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Dermatología",
+    "Nombre Médico":"Dra. Sonia Martínez",
+    "Horario":"Lunes, Miércoles y Viernes: 10:00 - 14:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Dermatología",
+    "Nombre Médico":"Dr. Francisco Herrera",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Oftalmología",
+    "Nombre Médico":"Dr. Ricardo Fernández",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Oftalmología",
+    "Nombre Médico":"Dra. Liliana González",
+    "Horario":"Lunes, Miércoles y Viernes: 14:00 - 18:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Oftalmología",
+    "Nombre Médico":"Dr. Andrés Pérez",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Neurología",
+    "Nombre Médico":"Dr. José Luis Martín",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Neurología",
+    "Nombre Médico":"Dra. Beatriz Castro",
+    "Horario":"Lunes, Miércoles y Viernes: 10:00 - 14:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Neurología",
+    "Nombre Médico":"Dr. Sergio Ramírez",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Ortopedia",
+    "Nombre Médico":"Dr. Manuel Gómez",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Ortopedia",
+    "Nombre Médico":"Dra. Julia Fernández",
+    "Horario":"Lunes, Miércoles y Viernes: 14:00 - 18:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Ortopedia",
+    "Nombre Médico":"Dr. Luis González",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Psiquiatría",
+    "Nombre Médico":"Dr. Alejandro Pérez",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Psiquiatría",
+    "Nombre Médico":"Dra. Clara Jiménez",
+    "Horario":"Lunes, Miércoles y Viernes: 14:00 - 18:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Psiquiatría",
+    "Nombre Médico":"Dr. Antonio Silva",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Otorrinolaringología",
+    "Nombre Médico":"Dr. Mario Sánchez",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Otorrinolaringología",
+    "Nombre Médico":"Dra. Raquel Torres",
+    "Horario":"Lunes, Miércoles y Viernes: 14:00 - 18:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Otorrinolaringología",
+    "Nombre Médico":"Dr. Roberto Díaz",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Endocrinología",
+    "Nombre Médico":"Dr. Gustavo Pérez",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Endocrinología",
+    "Nombre Médico":"Dra. Laura López",
+    "Horario":"Lunes, Miércoles y Viernes: 10:00 - 14:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Endocrinología",
+    "Nombre Médico":"Dr. Juan Hernández",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Traumatología",
+    "Nombre Médico":"Dr. Felipe Gómez",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Traumatología",
+    "Nombre Médico":"Dra. Teresa Martínez",
+    "Horario":"Lunes, Miércoles y Viernes: 10:00 - 14:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Traumatología",
+    "Nombre Médico":"Dr. Carlos Rodríguez",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Nefrología",
+    "Nombre Médico":"Dr. Joaquín García",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Nefrología",
+    "Nombre Médico":"Dra. Verónica Sánchez",
+    "Horario":"Lunes, Miércoles y Viernes: 10:00 - 14:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Nefrología",
+    "Nombre Médico":"Dr. Francisco López",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Cirugía General",
+    "Nombre Médico":"Dr. Ricardo González",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Cirugía General",
+    "Nombre Médico":"Dra. Gabriela Jiménez",
+    "Horario":"Lunes, Miércoles y Viernes: 14:00 - 18:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Cirugía General",
+    "Nombre Médico":"Dr. Jorge Rodríguez",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Medicina Interna",
+    "Nombre Médico":"Dr. Antonio Martínez",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Medicina Interna",
+    "Nombre Médico":"Dra. Estela Díaz",
+    "Horario":"Lunes, Miércoles y Viernes: 10:00 - 14:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Medicina Interna",
+    "Nombre Médico":"Dr. Rafael Fernández",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Reumatología",
+    "Nombre Médico":"Dr. Mario López",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Reumatología",
+    "Nombre Médico":"Dra. Isabel Pérez",
+    "Horario":"Lunes, Miércoles y Viernes: 14:00 - 18:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Reumatología",
+    "Nombre Médico":"Dr. Daniel Rodríguez",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  },
+  {
+    "Especialidad":"Medicina General",
+    "Nombre Médico":"Dr. Julián Martinez",
+    "Horario":"Lunes a Viernes: 08:00 - 12:00",
+    "Años Experiencia": "10 años"
+  },
+  {
+    "Especialidad":"Medicina General",
+    "Nombre Médico":"Dra. Karla Preciado",
+    "Horario":"Lunes, Miércoles y Viernes: 14:00 - 18:00",
+    "Años Experiencia": "8 años"
+  },
+  {
+    "Especialidad":"Medicina General",
+    "Nombre Médico":"Dr. Emanuel Godoy",
+    "Horario":"Martes a Jueves: 09:00 - 13:00",
+    "Años Experiencia": "5 años"
+  }
+]
