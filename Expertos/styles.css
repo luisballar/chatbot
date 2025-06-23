@@ -29,15 +29,6 @@ header {
     z-index: 100;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .logo {
     display: flex;
     align-items: center;
@@ -51,20 +42,46 @@ header {
     font-size: 2rem;
 }
 
-.nav-links {
+.navbar {
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--dark);
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+    margin: 0 1rem;
+    /* margen horizontal por defecto */
+    padding: 0.5rem 0;
+    /* margen vertical interno */
+    display: inline-block;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
     color: var(--primary);
+    transform: translateY(-2px);
 }
 
 .cta-button {
@@ -494,54 +511,6 @@ footer {
     opacity: 0.7;
 }
 
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .appointment-form {
-        grid-template-columns: 1fr;
-    }
-
-    .form-group.full-width {
-        grid-column: span 1;
-    }
-
-    .submit-button {
-        grid-column: span 1;
-    }
-
-  .doctor-card {
-    min-width: 85%;
-    margin: 0 7.5%;
-  }
-
-  .carousel-button {
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-  }
-  .doctors-carousel {
-  display: flex;
-  gap: 20px;
-  transition: transform 0.3s ease;
-  padding: 20px 0;
-  scroll-behavior: smooth;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.doctors-carousel::-webkit-scrollbar {
-  display: none;
-}
-
-}
-
 /* Animaciones */
 @keyframes fadeIn {
     from {
@@ -844,8 +813,104 @@ section {
     background: #21867a;
 }
 
-/* Estilos responsivos */
+
+/* Menú hamburguesa oculto en escritorio */
+.menu-toggle {
+    display: none;
+}
+
 @media (max-width: 768px) {
+
+
+    /* Menú hamburguesa */
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--dark);
+        cursor: pointer;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        z-index: 100;
+    }
+
+    .nav-links a {
+        margin: 0.5rem 0;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-10px);
+        animation: slideFadeIn 0.3s ease-out forwards;
+    }
+
+    /* delay en cascada según posición */
+    .nav-links a:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .nav-links a:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .nav-links a:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .nav-links a:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .nav-links a:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    /* Hero section */
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    /* Features section */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    /* Appointment form */
+    .appointment-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width,
+    .submit-button {
+        grid-column: span 1;
+    }
+
+    /* Doctores - carrusel */
     .doctor-card {
         min-width: 85%;
         margin: 0 7.5%;
@@ -856,57 +921,39 @@ section {
         height: 30px;
         font-size: 14px;
     }
+
+    .doctors-carousel {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.3s ease;
+        padding: 20px 0;
+        scroll-behavior: smooth;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .chatbot-wrapper.minimized {
+        pointer-events: none;
+    }
+
+    .chatbot-wrapper.minimized .chatbot-toggle {
+        pointer-events: auto;
+    }
+
+    .doctors-carousel::-webkit-scrollbar {
+        display: none;
+    }
 }
 
-/* Menú hamburguesa oculto en escritorio */
-.menu-toggle {
-  display: none;
-}
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 
-/* Mostrar en móviles */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    font-size: 1.5rem;
-    color: var(--dark);
-    cursor: pointer;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    background-color: white;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: none;
-    z-index: 100;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

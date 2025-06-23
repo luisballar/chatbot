@@ -9,7 +9,7 @@ const store = window.WebChat.createStore({}, ({ dispatch }) => next => action =>
     dispatch({
       type: 'WEB_CHAT/SEND_EVENT',
       payload: {
-        name: 'startConversation', // Este es el nombre del evento que debes configurar en tu bot
+        name: 'startConversation',
         value: { source: 'webchat' }
       }
     });
@@ -27,14 +27,14 @@ window.WebChat.renderWebChat(
     styleOptions: {
       bubbleMaxWidth: 380,
       bubblePadding: 10,
-      bubbleTextSize: 10, // size font
+      bubbleTextSize: 10,
       sendBoxHeight: 40,
       sendBoxTextSize: 14,
       paddingRegular: 12,
       hideUploadButton: true,
       botAvatarImage: 'https://img.icons8.com/?size=512&id=35734&format=png',
       botAvatarInitials: '', // vacía para que no se superponga
-      botAvatarBackgroundColor: 'transparent', 
+      botAvatarBackgroundColor: 'transparent',
       botAvatarSize: 40
     }
 
