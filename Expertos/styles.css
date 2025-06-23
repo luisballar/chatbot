@@ -29,13 +29,22 @@ header {
     z-index: 100;
 }
 
-.navbar {
+.logo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+:root {
+    --primary: #2a9d8f;
+    --dark: #333;
 }
 
 .logo {
@@ -51,20 +60,115 @@ header {
     font-size: 2rem;
 }
 
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
+/* Responsive menú hamburguesa */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
     color: var(--dark);
-    font-weight: 500;
-    transition: color 0.3s;
+    cursor: pointer;
 }
 
-.nav-links a:hover {
-    color: var(--primary);
+.doctors-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 1rem;
+}
+
+.doctor-card {
+    min-width: 250px;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+}
+
+.carousel-button {
+    display: none;
+    /* Ocultar botones en móvil si quieres solo scroll táctil */
+}
+
+
+
+@media (max-width: 768px) {
+
+
+    .carousel-button {
+        display: block;
+    }
+
+
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--dark);
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .doctor-card {
+        min-width: 85%;
+        margin: 0 7.5%;
+    }
+
+    .appointment-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .submit-button {
+        grid-column: span 1;
+    }
+
+    :root {
+        --dark: #333;
+    }
+
+    /* Menú hamburguesa oculto en escritorio */
+    .menu-toggle {
+        display: block;
+    }
+
+
 }
 
 .cta-button {
@@ -193,14 +297,6 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-}
-
-.doctor-card {
-    background-color: var(--light);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
 }
 
 .doctor-card:hover {
@@ -494,53 +590,6 @@ footer {
     opacity: 0.7;
 }
 
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .appointment-form {
-        grid-template-columns: 1fr;
-    }
-
-    .form-group.full-width {
-        grid-column: span 1;
-    }
-
-    .submit-button {
-        grid-column: span 1;
-    }
-
-  .doctor-card {
-    min-width: 85%;
-    margin: 0 7.5%;
-  }
-
-  .carousel-button {
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-  }
-  .doctors-carousel {
-  display: flex;
-  gap: 20px;
-  transition: transform 0.3s ease;
-  padding: 20px 0;
-  scroll-behavior: smooth;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.doctors-carousel::-webkit-scrollbar {
-  display: none;
-}
-
-}
 
 /* Animaciones */
 @keyframes fadeIn {
@@ -804,7 +853,13 @@ section {
 }
 
 .doctor-card {
+    flex: 0 0 auto;
+    /* asegura que ocupe su propio espacio en el carrusel */
+    width: 80vw;
+    /* adapta el ancho al 80% del viewport del móvil */
     min-width: 280px;
+    max-width: 320px;
+    /* opcional: previene que se vea demasiado grande */
     scroll-snap-align: start;
     flex-shrink: 0;
     background: white;
@@ -842,71 +897,4 @@ section {
 
 .carousel-button:hover {
     background: #21867a;
-}
-
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    .doctor-card {
-        min-width: 85%;
-        margin: 0 7.5%;
-    }
-
-    .carousel-button {
-        width: 30px;
-        height: 30px;
-        font-size: 14px;
-    }
-}
-
-/* Menú hamburguesa oculto en escritorio */
-.menu-toggle {
-  display: none;
-}
-
-/* Mostrar en móviles */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    font-size: 1.5rem;
-    color: var(--dark);
-    cursor: pointer;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    background-color: white;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: none;
-    z-index: 100;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
 }

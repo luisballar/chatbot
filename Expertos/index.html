@@ -8,36 +8,39 @@
     <link rel="icon" href="images\logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
 
     <header>
-    <nav class="navbar">
-        <div class="logo">
-        <span class="logo-icon"><i class="fas fa-heartbeat"></i></span>
-        <span>Tatooine</span>
-        </div>
-        
-        <!-- Botón hamburguesa -->
-        <div class="menu-toggle" id="menu-toggle">
-        <i class="fas fa-bars"></i>
-        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon"><i class="fas fa-heartbeat"></i></span>
+                <span>Tatooine</span>
+            </div>
 
-        <div class="nav-links" id="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#doctores">Doctores</a>
-        <a href="#testimonios">Testimonios</a>
-        <a href="#contacto">Contacto</a>
-        </div>
-    </nav>
+            <!-- Botón hamburguesa -->
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="nav-links" id="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#doctores">Doctores</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
     </header>
 
     <section class="hero" id="inicio">
         <div class="hero-content animated">
             <h1>Cuidamos de tu salud con excelencia y calidez humana</h1>
-            <p>En Sanar encontrará un equipo médico comprometido con su bienestar y tecnología de vanguardia para su
+            <p>En Tatooine Medical Center encontrará un equipo médico comprometido con su bienestar y tecnología de
+                vanguardia para su
                 diagnóstico y tratamiento.</p>
         </div>
     </section>
@@ -96,60 +99,6 @@
             </div>
         </div>
     </section>
-
-    <script>
-        fetch('./data/medicos.json')
-            .then(response => response.json())
-            .then(medicos => {
-                const carousel = document.querySelector('.doctors-carousel');
-
-                medicos.forEach((medico, index) => {
-                    const isFemale = medico["Nombre Médico"].includes("Dra.");
-                    const imageUrl = isFemale
-                        ? `https://randomuser.me/api/portraits/women/${40 + (index % 30)}.jpg`
-                        : `https://randomuser.me/api/portraits/men/${30 + (index % 30)}.jpg`;
-
-                    const html = `
-                <div class="doctor-card">
-                    <div class="doctor-image" style="background-image: url('${imageUrl}');"></div>
-                    <div class="doctor-info">
-                        <h3>${medico["Nombre Médico"]}</h3>
-                        <span class="doctor-specialty">${medico.Especialidad}</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(${Math.floor(Math.random() * 250 + 50)})</span>
-                        </div>
-                        <button class="appointment-button">Pedir cita</button>
-                    </div>
-                </div>
-            `;
-
-                    carousel.innerHTML += html;
-                });
-
-                // Configurar el carrusel
-                const carouselContainer = document.querySelector('.doctors-carousel');
-                const card = document.querySelector('.doctor-card');
-                const cardWidth = card?.offsetWidth || 300;
-                const gap = 20;
-                const visibleCards = 3;
-                const scrollAmount = (cardWidth + gap) * visibleCards;
-
-                document.querySelector('.carousel-button.next').addEventListener('click', () => {
-                    carouselContainer.scrollLeft += scrollAmount;
-                });
-
-                document.querySelector('.carousel-button.prev').addEventListener('click', () => {
-                    carouselContainer.scrollLeft -= scrollAmount;
-                });
-
-            })
-            .catch(err => console.error('Error cargando médicos:', err));
-    </script>
 
     <section class="testimonials" id="testimonios">
         <h2 class="section-title animated">Lo que dicen nuestros pacientes</h2>
@@ -228,8 +177,10 @@
             <div class="footer-container">
                 <div class="footer-about">
                     <span class="footer-logo">Tatooine Medical Center</span>
-                    <p>Comprometidos con el bienestar de nuestros pacientes desde 2015, ofrecemos atención médica integral de calidad. Nuestra misión es proporcionar 
-                        servicios de salud con la más alta profesionalidad, garantizando un enfoque humano y accesible para cada individuo que atendemos.</p>
+                    <p>Comprometidos con el bienestar de nuestros pacientes desde 2015, ofrecemos atención médica
+                        integral de calidad. Nuestra misión es proporcionar
+                        servicios de salud con la más alta profesionalidad, garantizando un enfoque humano y accesible
+                        para cada individuo que atendemos.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -259,15 +210,16 @@
                 </div>
                 <div class="footer-contact">
                     <h3>Contacto</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Centro Médico Tatooine Av. 8, Calle 17, San José, Costa Rica</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Centro Médico Tatooine Av. 8, Calle 17, San José, Costa
+                        Rica</p>
                     <p><i class="fas fa-phone"></i> (506) 0000-0000</p>
                     <p><i class="fas fa-envelope"></i> tatooinemedcenter@gmail.com</p>
-                    <p><i class="fas fa-clock"></i> Lunes a Viernes: 10am - 7pm</p> 
+                    <p><i class="fas fa-clock"></i> Lunes a Viernes: 10am - 7pm</p>
                     <p><i class="fas fa-clock"></i> Sábados y Domingos: 11am - 6pm</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Sanar Salud Integral. Todos los derechos reservados.</p>
+                <p>&copy; 2023 Tatooine Medical Center. Todos los derechos reservados.</p>
             </div>
         </footer>
     </div>
@@ -405,6 +357,66 @@
         document.getElementById('menu-toggle').addEventListener('click', function () {
             document.getElementById('nav-links').classList.toggle('show');
         });
+    </script>
+
+    <script>
+        fetch('./data/medicos.json')
+            .then(response => response.json())
+            .then(medicos => {
+                const carousel = document.querySelector('.doctors-carousel');
+
+                medicos.forEach((medico, index) => {
+                    const isFemale = medico["Nombre Médico"].includes("Dra.");
+                    const imageUrl = isFemale
+                        ? `https://randomuser.me/api/portraits/women/${40 + (index % 30)}.jpg`
+                        : `https://randomuser.me/api/portraits/men/${30 + (index % 30)}.jpg`;
+
+                    const html = `
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('${imageUrl}');"></div>
+                    <div class="doctor-info">
+                        <h3>${medico["Nombre Médico"]}</h3>
+                        <span class="doctor-specialty">${medico.Especialidad}</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(${Math.floor(Math.random() * 250 + 50)})</span>
+                        </div>
+                        <button class="appointment-button">Pedir cita</button>
+                    </div>
+                </div>
+            `;
+
+                    carousel.innerHTML += html;
+                });
+
+                // Configurar el carrusel
+                const carouselContainer = document.querySelector('.doctors-carousel');
+                const card = document.querySelector('.doctor-card');
+                const cardWidth = card?.offsetWidth || 300;
+                const gap = 20;
+                const visibleCards = 3;
+                const scrollAmount = (cardWidth + gap) * visibleCards;
+
+                document.querySelector('.carousel-button.next').addEventListener('click', () => {
+                    carouselContainer.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+
+                document.querySelector('.carousel-button.prev').addEventListener('click', () => {
+                    carouselContainer.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+
+            })
+            .catch(err => console.error('Error cargando médicos:', err));
     </script>
 
 </body>
