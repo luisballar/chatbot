@@ -13,19 +13,25 @@
 <body>
 
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <span class="logo-icon"><i class="fas fa-heartbeat"></i></span>
-                <span>Tatooine</span>
-            </div>
-            <div class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#doctores">Doctores</a>
-                <a href="#testimonios">Testimonios</a>
-                <a href="#contacto">Contacto</a>
-            </div>
-        </nav>
+    <nav class="navbar">
+        <div class="logo">
+        <span class="logo-icon"><i class="fas fa-heartbeat"></i></span>
+        <span>Tatooine</span>
+        </div>
+        
+        <!-- Botón hamburguesa -->
+        <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="nav-links" id="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#doctores">Doctores</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
     </header>
 
     <section class="hero" id="inicio">
@@ -221,9 +227,9 @@
         <footer>
             <div class="footer-container">
                 <div class="footer-about">
-                    <span class="footer-logo">Sanar</span>
-                    <p>Comprometidos con la excelencia médica y el trato humano desde 2025. Nuestra misión es brindar
-                        atención de salud integral con los más altos estándares de calidad.</p>
+                    <span class="footer-logo">Tatooine Medical Center</span>
+                    <p>Comprometidos con el bienestar de nuestros pacientes desde 2015, ofrecemos atención médica integral de calidad. Nuestra misión es proporcionar 
+                        servicios de salud con la más alta profesionalidad, garantizando un enfoque humano y accesible para cada individuo que atendemos.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -256,7 +262,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> Centro Médico Tatooine Av. 8, Calle 17, San José, Costa Rica</p>
                     <p><i class="fas fa-phone"></i> (506) 0000-0000</p>
                     <p><i class="fas fa-envelope"></i> tatooinemedcenter@gmail.com</p>
-                    <p><i class="fas fa-clock"></i> Lunes a Viernes: 10am - 7pm</p>
+                    <p><i class="fas fa-clock"></i> Lunes a Viernes: 10am - 7pm</p> 
                     <p><i class="fas fa-clock"></i> Sábados y Domingos: 11am - 6pm</p>
                 </div>
             </div>
@@ -394,6 +400,13 @@
         }
 
     </script>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('nav-links').classList.toggle('show');
+        });
+    </script>
+
 </body>
 
 </html>

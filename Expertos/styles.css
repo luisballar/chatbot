@@ -514,6 +514,32 @@ footer {
     .submit-button {
         grid-column: span 1;
     }
+
+  .doctor-card {
+    min-width: 85%;
+    margin: 0 7.5%;
+  }
+
+  .carousel-button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .doctors-carousel {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.3s ease;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.doctors-carousel::-webkit-scrollbar {
+  display: none;
+}
+
 }
 
 /* Animaciones */
@@ -830,4 +856,57 @@ section {
         height: 30px;
         font-size: 14px;
     }
+}
+
+/* Menú hamburguesa oculto en escritorio */
+.menu-toggle {
+  display: none;
+}
+
+/* Mostrar en móviles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--dark);
+    cursor: pointer;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }
